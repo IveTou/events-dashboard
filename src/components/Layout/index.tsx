@@ -4,6 +4,7 @@ import { useModal } from '@refinedev/core';
 import Header from '../Header'
 import Sidebar from '../Sidebar'
 import Modal from '../Modal';
+import Form from '../Form';
 
 
 interface LayoutProps {
@@ -13,7 +14,7 @@ interface LayoutProps {
 export default function Layout({ children } : LayoutProps) {
   const { show, close, visible } = useModal();
 
-  const modal = visible && createPortal(<Modal close={close} />, document.body);
+  const modal = visible && createPortal(<Modal close={close}><Form /></Modal>, document.body);
 
   const actionHandler = (name: string) => {
     console.log('Name:', name)
