@@ -1,7 +1,7 @@
 import { ReactNode, createContext, useContext, useMemo } from "react"
 
 type EventContextType = {
-  events: object
+  events: any
 }
 
 const EventContext = createContext<EventContextType | undefined>(undefined);
