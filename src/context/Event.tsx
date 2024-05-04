@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useContext, useMemo } from "react"
 import { EventDetail } from "../types/Event";
+import mock from "./mock";
 
 type EventContextType = {
   events: EventDetail[]
@@ -35,9 +36,13 @@ export function EventProvider({ children }: EventProviderProps) {
     return DETAILS
   }
 
+  const events: EventDetail[] = useMemo(() => {
+    return Object.values(mock)
+  }, [])
+
   const store = useMemo(() => {
     return {
-      events: [],
+      events,
       submit,
       getDetails,
     }
