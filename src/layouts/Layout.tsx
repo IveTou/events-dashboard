@@ -8,16 +8,17 @@ import Form from '../components/Form';
 import { ActionsEnum } from '../enums/Actons';
 import Details from '../components/Details';
 import { useEvents } from '../context/Event';
+import { Route, Routes } from 'react-router-dom';
+import List from '../pages/List';
+import Calendar from '../pages/Calendar';
+import NotFound from '../pages/NotFound';
 
-interface LayoutProps {
-  children: ReactNode
-}
-
-export default function Layout({ children } : LayoutProps) {
+export default function Layout() {
   const { show, close, visible } = useModal();
   const [modalContent, setModalContent] = useState<ReactNode>(null)
   const { submit, getDetails } = useEvents()
 
+  {/* I could open modal based on navigation data */}
   const actionHandler = (name: ActionsEnum, eventId?: string) => {
     const contentMap: ReactNode = {
       CREATE: <Form submit={submit} cancel={close} />,
@@ -41,7 +42,19 @@ export default function Layout({ children } : LayoutProps) {
       <aside><Sidebar action={actionHandler} /></aside>
       <main>
         <Header />
-        {children}
+        {/* I could decouple Routes to an routes path */}
+        <Routes>
+          <Route
+            path={'/list'}
+            element={<List action={actionHandler} />}
+            errorElement={<NotFound />}
+          />
+          <Route
+            path={'/calendar'}
+            element={<Calendar action={actionHandler} />}
+            errorElement={<NotFound />}
+          />
+        </Routes>
       </main>
       {modal}
     </>

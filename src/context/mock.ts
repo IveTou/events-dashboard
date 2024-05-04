@@ -5,6 +5,7 @@ export default {
     'date': '2014-08-09',
     'time': '00:30',
     'location': 'Lorem ipsum lorem lorem',
+    'id': '1',
   },
   '2': {
     'title': 'Crazy 8',
@@ -12,6 +13,7 @@ export default {
     'date': '2014-07-09',
     'time': '00:30',
     'location': 'Lorem ipsum lorem lorem',
+    'id': '2',
   },
   '3': {
     'title': 'Crazy 8',
@@ -19,6 +21,7 @@ export default {
     'date': '2014-07-09',
     'time': '00:30',
     'location': 'Lorem ipsum lorem lorem',
+    'id': '3',
   },
   '4': {
     'title': 'Crazy 8',
@@ -26,6 +29,7 @@ export default {
     'date': '2014-02-09',
     'time': '00:30',
     'location': 'Lorem ipsum lorem lorem',
+    'id': '4',
   },
   '5': {
     'title': 'Crazy 8',
@@ -33,6 +37,7 @@ export default {
     'date': '2014-02-19',
     'time': '00:30',
     'location': 'Lorem ipsum lorem lorem',
+    'id': '5',
   },
   '6': {
     'title': 'Crazy 8',
@@ -40,6 +45,7 @@ export default {
     'date': '2014-08-10',
     'time': '00:30',
     'location': 'Lorem ipsum lorem lorem',
+    'id': '6',
   },
   '7': {
     'title': 'Crazy 8',
@@ -47,6 +53,7 @@ export default {
     'date': '2014-10-09',
     'time': '00:30',
     'location': 'Lorem ipsum lorem lorem',
+    'id': '7',
   },
   '8': {
     'title': 'Crazy 8',
@@ -54,6 +61,7 @@ export default {
     'date': '2014-10-10',
     'time': '00:30',
     'location': 'Lorem ipsum lorem lorem',
+    'id': '8',
   },
   '9': {
     'title': 'Crazy 8',
@@ -61,6 +69,7 @@ export default {
     'date': '2014-10-10',
     'time': '00:30',
     'location': 'Lorem ipsum lorem lorem',
+    'id': '9',
   },
   '10': {
     'title': 'Crazy 8',
@@ -68,6 +77,7 @@ export default {
     'date': '2014-10-11',
     'time': '00:30',
     'location': 'Lorem ipsum lorem lorem',
+    'id': '10',
   },
   '11': {
     'title': 'Crazy 8',
@@ -75,6 +85,7 @@ export default {
     'date': '2014-08-12',
     'time': '00:30',
     'location': 'Lorem ipsum lorem lorem',
+    'id': '11',
   },
   '12': {
     'title': 'Crazy 8',
@@ -82,6 +93,7 @@ export default {
     'date': '2014-02-10',
     'time': '00:30',
     'location': 'Lorem ipsum lorem lorem',
+    'id': '12',
   },
   '13': {
     'title': 'Crazy 8',
@@ -89,5 +101,6 @@ export default {
     'date': '2014-03-09',
     'time': '00:30',
     'location': 'Lorem ipsum lorem lorem',
+    'id': '13',
   },
 }

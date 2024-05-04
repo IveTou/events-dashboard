@@ -25,15 +25,8 @@ export function EventProvider({ children }: EventProviderProps) {
   }
 
   const getDetails = (id: string) => {
-    const DETAILS: EventDetail = {
-      title: 'Crazy 8',
-      description: 'Lorem ipsum lorem lorem',
-      date: '2014-08-09',
-      time: '00:30',
-      location: 'Lorem ipsum lorem lorem',
-    }
-
-    return DETAILS
+    const e: {[key: string]: EventDetail} = mock
+    return e[id]
   }
 
   const events: EventDetail[] = useMemo(() => {
