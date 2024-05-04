@@ -3,14 +3,21 @@ import { facade, schema } from './schemas'
 import { FormFields } from './types'
 
 interface FormProps {
-  fields: FormFields
+  id?: string
   cancel: () => void
   submit: (fields: FormFields) => void
 }
 
-export default function Form({ cancel, submit, fields }: FormProps) {
+const INITIAL_FORM_DATA: FormFields = {
+  title: '',
+  time: '',
+  date: '',
+  description: '',
+}
+
+export default function Form({ cancel, submit, id }: FormProps) {
   const [errors, setErrors] = useState<FormFields>()
-  const [formData, setFormData] = useState<FormFields>(fields)
+  const [formData, setFormData] = useState<FormFields>(INITIAL_FORM_DATA)
 
   const handleSubmit = () => {
     const result = schema.safeParse(formData)
@@ -23,13 +30,13 @@ export default function Form({ cancel, submit, fields }: FormProps) {
       setErrors(errorMapping)
     } else {
       setErrors(undefined)
-      submit(formData)
+      submit({ ...formData, id })
     }
   }
 
   return (
     <>
-      <h1>Create an Event</h1>
+      <h1>{id ? 'Edit Event' : 'Create an Event'}</h1>
       <div>
         {facade.map(({ id, name }) => (
           <div>
