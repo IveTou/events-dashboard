@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { facade, schema } from './schemas'
-import { FormFields } from './types'
+import { EventDetail } from '../../types/Event'
 
+type FormFields = Omit<EventDetail, 'id'>
 interface FormProps {
   id?: string
   cancel: () => void
-  submit: (fields: FormFields) => void
+  submit: (fields: EventDetail) => void
 }
 
 const INITIAL_FORM_DATA: FormFields = {
@@ -13,6 +14,7 @@ const INITIAL_FORM_DATA: FormFields = {
   time: '',
   date: '',
   description: '',
+  location: ''
 }
 
 export default function Form({ cancel, submit, id }: FormProps) {

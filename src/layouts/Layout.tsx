@@ -5,8 +5,9 @@ import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import Modal from '../components/Modal';
 import Form from '../components/Form';
-import { FormFields } from '../components/Form/types';
 import { ActionsEnum } from '../enums/Actons';
+import Details from '../components/Details';
+import { useEvents } from '../context/Event';
 
 interface LayoutProps {
   children: ReactNode
@@ -15,17 +16,13 @@ interface LayoutProps {
 export default function Layout({ children } : LayoutProps) {
   const { show, close, visible } = useModal();
   const [modalContent, setModalContent] = useState<ReactNode>(null)
-
-  const submitHandler = (fields: FormFields) => {
-    console.log('FIELDS', fields)
-  }
-
+  const { submit, getDetails } = useEvents()
 
   const actionHandler = (name: ActionsEnum, eventId?: string) => {
     const contentMap: ReactNode = {
-      CREATE: <Form submit={submitHandler} cancel={close} />,
-      EDIT: <Form submit={submitHandler} cancel={close} id={eventId} />,
-      DETAILS: <div>Hello</div>
+      CREATE: <Form submit={submit} cancel={close} />,
+      EDIT: <Form submit={submit} cancel={close} id={eventId} />,
+      DETAILS: <Details {...getDetails(eventId!)}/>
     }[name]
 
     setModalContent(contentMap)
