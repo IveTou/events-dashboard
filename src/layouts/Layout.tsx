@@ -12,6 +12,7 @@ import { Route, Routes } from 'react-router-dom';
 import List from '../pages/List';
 import Calendar from '../pages/Calendar';
 import NotFound from '../pages/NotFound';
+import { FormFields } from '../components/Form/types';
 
 export default function Layout() {
   const { show, close, visible } = useModal();
@@ -19,10 +20,10 @@ export default function Layout() {
   const { submit, getDetails } = useEvents()
 
   {/* I could open modal based on navigation data */}
-  const actionHandler = (name: ActionsEnum, eventId?: string) => {
+  const actionHandler = (name: ActionsEnum, eventId?: string, fields?: FormFields) => {
     const contentMap: ReactNode = {
       CREATE: <Form submit={submit} cancel={close} />,
-      EDIT: <Form submit={submit} cancel={close} id={eventId} />,
+      EDIT: <Form submit={submit} cancel={close} id={eventId} fields={fields}/>,
       DETAILS: <Details {...getDetails(eventId!)}/>
     }[name]
 

@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { facade, schema } from './schemas'
 import { EventDetail } from '../../types/Event'
+import { FormFields } from './types'
 
-type FormFields = Omit<EventDetail, 'id'>
 interface FormProps {
   id?: string
   cancel: () => void
   submit: (fields: EventDetail) => void
+  fields?: FormFields
 }
 
 const INITIAL_FORM_DATA: FormFields = {
@@ -17,9 +18,13 @@ const INITIAL_FORM_DATA: FormFields = {
   location: ''
 }
 
-export default function Form({ cancel, submit, id }: FormProps) {
+export default function Form({ cancel, submit, id, fields }: FormProps) {
   const [errors, setErrors] = useState<FormFields>()
   const [formData, setFormData] = useState<FormFields>(INITIAL_FORM_DATA)
+
+  useEffect(() => {
+    if (fields) setFormData(fields)
+  }, [fields])
 
   const handleSubmit = () => {
     const result = schema.safeParse(formData)
@@ -41,7 +46,7 @@ export default function Form({ cancel, submit, id }: FormProps) {
       <h1>{id ? 'Edit Event' : 'Create an Event'}</h1>
       <div>
         {facade.map(({ id, name }) => (
-          <div>
+          <div key={id}>
             <label htmlFor={id}>{name}</label>
             <input
               value={formData && formData[id as keyof FormFields]}
