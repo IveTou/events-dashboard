@@ -4,6 +4,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   display: flex;
   flex-flow: column;
+  grid-area: header;
 `
 export const StyledHeading = styled.section`
   display: flex;

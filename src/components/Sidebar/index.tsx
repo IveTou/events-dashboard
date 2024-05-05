@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ActionsEnum } from '../../enums/Actions';
+import { StyledSideBar } from './styled';
 
 interface SideBarProps {
   action: (name: ActionsEnum, eventId?: string) => void
@@ -7,7 +8,7 @@ interface SideBarProps {
 
 export default function Sidebar({ action }: SideBarProps) {
   return (
-    <div>
+    <StyledSideBar>
       <h2>Menu</h2>
       <nav>
         <ul>
@@ -18,6 +19,6 @@ export default function Sidebar({ action }: SideBarProps) {
           <li><button onClick={() => action(ActionsEnum.DETAILS)}>Details</button></li>
         </ul>
       </nav>
-    </div>
+    </StyledSideBar>
   )
 }

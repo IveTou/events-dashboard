@@ -13,6 +13,7 @@ import List from '../pages/List';
 import Calendar from '../pages/Calendar';
 import NotFound from '../pages/NotFound';
 import { FormFields } from '../components/Form/types';
+import { StyledMain, SyledLayout } from './styled';
 
 export default function Layout() {
   const { show, close, visible } = useModal();
@@ -45,10 +46,10 @@ export default function Layout() {
   )
 
   return (
-    <div>
+    <SyledLayout>
       <Header action={actionHandler} />
-      <aside><Sidebar action={actionHandler} /></aside>
-      <main>
+      <Sidebar action={actionHandler} />
+      <StyledMain>
         {/* I could decouple Routes to an routes path */}
         <Routes>
           <Route
@@ -62,8 +63,8 @@ export default function Layout() {
             errorElement={<NotFound />}
           />
         </Routes>
-      </main>
+      </StyledMain>
       {modal}
-    </div>
+    </SyledLayout>
   )
 }
