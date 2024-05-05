@@ -5,6 +5,7 @@ export const StyledHeader = styled.header`
   display: flex;
   flex-flow: column;
   grid-area: header;
+  height: fit-content;
 `
 export const StyledHeading = styled.section`
   display: flex;

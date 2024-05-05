@@ -14,6 +14,7 @@ import Calendar from '../pages/Calendar';
 import NotFound from '../pages/NotFound';
 import { FormFields } from '../components/Form/types';
 import { StyledMain, SyledLayout } from './styled';
+import Footer from '../components/Footer';
 
 export default function Layout() {
   const { show, close, visible } = useModal();
@@ -46,25 +47,28 @@ export default function Layout() {
   )
 
   return (
-    <SyledLayout>
-      <Header action={actionHandler} />
-      <Sidebar action={actionHandler} />
-      <StyledMain>
-        {/* I could decouple Routes to an routes path */}
-        <Routes>
-          <Route
-            path={'/list'}
-            element={<List action={actionHandler} />}
-            errorElement={<NotFound />}
-          />
-          <Route
-            path={'/calendar'}
-            element={<Calendar action={actionHandler} />}
-            errorElement={<NotFound />}
-          />
-        </Routes>
-      </StyledMain>
+    <>
+      <SyledLayout>
+        <Header action={actionHandler} />
+        <Sidebar action={actionHandler} />
+        <StyledMain>
+          {/* I could decouple Routes to an routes path */}
+          <Routes>
+            <Route
+              path={'/list'}
+              element={<List action={actionHandler} />}
+              errorElement={<NotFound />}
+            />
+            <Route
+              path={'/calendar'}
+              element={<Calendar action={actionHandler} />}
+              errorElement={<NotFound />}
+            />
+          </Routes>
+        </StyledMain>
+      </SyledLayout>
+      <Footer />
       {modal}
-    </SyledLayout>
+    </>
   )
 }
