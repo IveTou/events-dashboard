@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { facade, schema } from './schemas'
 import { EventDetail } from '../../types/Event'
 import { FormFields } from './types'
+import { StyledButtons, StyledInput, StyledModal } from './styled'
 
 interface FormProps {
   id?: string
@@ -42,22 +43,24 @@ export default function Form({ cancel, submit, id, fields }: FormProps) {
   }
 
   return (
-    <>
-      <h1>{id ? 'Edit Event' : 'Create an Event'}</h1>
+    <StyledModal>
+      <h2>{id ? 'Edit Event' : 'Create an Event'}</h2>
       <div>
         {facade.map(({ id, name }) => (
-          <div key={id}>
+          <StyledInput key={id}>
             <label htmlFor={id}>{name}</label>
             <input
               value={formData && formData[id as keyof FormFields]}
               onChange={e => setFormData(prev => ({ ...prev, [id]: e.target.value }))}
             />
             {errors  && <span>{errors[id as keyof FormFields]}</span>}
-          </div>
+          </StyledInput>
         ))}
-        <button onClick={handleSubmit}>Submit</button>
-        <button onClick={cancel}>Cancel</button>
+        <StyledButtons>
+          <button onClick={cancel}>Cancel</button>
+          <button onClick={handleSubmit}>Submit</button>
+        </StyledButtons>
       </div>
-    </>
+    </StyledModal>
   )
 }

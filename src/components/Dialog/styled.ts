@@ -6,6 +6,7 @@ export const StyledDialog = styled.dialog`
   padding: 24px 24px 8px;
   color: black;
   background: white;
+  border-radius: 4px;
 
   p {
     padding: 16px;

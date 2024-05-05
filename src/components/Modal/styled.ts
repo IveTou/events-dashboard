@@ -6,7 +6,10 @@ export const StyledModal = styled.div`
   color: black;
   padding: 16px;
   place-self: center center;
-  > div {
+  border-radius: 4px;
+  max-width: 50%;
+
+  > div:first-child {
     display: grid;
     button {
       place-self: center end;
