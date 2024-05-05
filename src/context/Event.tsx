@@ -4,8 +4,9 @@ import mock from "./mock";
 
 type EventContextType = {
   events: EventDetail[]
-  submit: (fields: EventDetail) => void
+  submitDetail: (fields: EventDetail) => void
   getDetails: (id: string) => EventDetail
+  deleteDetail: (id: string) => boolean
 }
 
 const EventContext = createContext<EventContextType | undefined>(undefined);
@@ -16,12 +17,18 @@ interface EventProviderProps {
 
 export function EventProvider({ children }: EventProviderProps) {
 
-  const submit = (fields: EventDetail) => {
+  const submitDetail = (fields: EventDetail) => {
     if (fields.id) {
       console.log('EDIT_EVENT')
     } else {
       console.log('CREATE_EVENT')
     }
+  }
+
+  const deleteDetail = (id: string) => {
+    const e: {[key: string]: EventDetail} = mock
+    console.log('ACTION_DELETE', e[id])
+    return true
   }
 
   const getDetails = (id: string) => {
@@ -36,8 +43,9 @@ export function EventProvider({ children }: EventProviderProps) {
   const store = useMemo(() => {
     return {
       events,
-      submit,
+      submitDetail,
       getDetails,
+      deleteDetail,
     }
   }, [])
 

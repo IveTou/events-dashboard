@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ActionsEnum } from '../../enums/Actons';
+import { ActionsEnum } from '../../enums/Actions';
 
 interface SideBarProps {
   action: (name: ActionsEnum, eventId?: string) => void

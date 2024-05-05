@@ -5,7 +5,7 @@ import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import Modal from '../components/Modal';
 import Form from '../components/Form';
-import { ActionsEnum } from '../enums/Actons';
+import { ActionsEnum } from '../enums/Actions';
 import Details from '../components/Details';
 import { useEvents } from '../context/Event';
 import { Route, Routes } from 'react-router-dom';
@@ -17,14 +17,20 @@ import { FormFields } from '../components/Form/types';
 export default function Layout() {
   const { show, close, visible } = useModal();
   const [modalContent, setModalContent] = useState<ReactNode>(null)
-  const { submit, getDetails } = useEvents()
+  const { submitDetail, getDetails, deleteDetail } = useEvents()
 
   {/* I could open modal based on navigation data */}
   const actionHandler = (name: ActionsEnum, eventId?: string, fields?: FormFields) => {
+    if (name === ActionsEnum.DELETE) {
+      deleteDetail(eventId!)
+      return
+    }
+
     const contentMap: ReactNode = {
-      CREATE: <Form submit={submit} cancel={close} />,
-      EDIT: <Form submit={submit} cancel={close} id={eventId} fields={fields}/>,
-      DETAILS: <Details {...getDetails(eventId!)}/>
+      CREATE: <Form submit={submitDetail} cancel={close} />,
+      EDIT: <Form submit={submitDetail} cancel={close} id={eventId} fields={fields}/>,
+      DETAILS: <Details {...getDetails(eventId!)}/>,
+      DELETE: null
     }[name]
 
     setModalContent(contentMap)
