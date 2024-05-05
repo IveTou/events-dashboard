@@ -15,12 +15,17 @@ import NotFound from '../pages/NotFound';
 import { FormFields } from '../components/Form/types';
 import { StyledMain, SyledLayout } from './styled';
 import Footer from '../components/Footer';
+import { EventDetail } from '../types/Event';
 
 export default function Layout() {
   const { show, close, visible } = useModal();
   const [modalContent, setModalContent] = useState<ReactNode>(null)
   const { submitDetail, getDetails, deleteDetail } = useEvents()
 
+  const submitHandler = (fields: EventDetail) => {
+    submitDetail(fields)
+    close()
+  }
   {/* I could open modal based on navigation data */}
   const actionHandler = (name: ActionsEnum, eventId?: string, fields?: FormFields) => {
     if (name === ActionsEnum.DELETE) {
@@ -29,8 +34,8 @@ export default function Layout() {
     }
 
     const contentMap: ReactNode = {
-      CREATE: <Form submit={submitDetail} cancel={close} />,
-      EDIT: <Form submit={submitDetail} cancel={close} id={eventId} fields={fields}/>,
+      CREATE: <Form submit={submitHandler} cancel={close} />,
+      EDIT: <Form submit={submitHandler} cancel={close} id={eventId} fields={fields}/>,
       DETAILS: <Details {...getDetails(eventId!)}/>,
       DELETE: null
     }[name]

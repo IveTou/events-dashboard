@@ -7,13 +7,23 @@ export const StyledModal = styled.div`
   padding: 16px;
   place-self: center center;
   border-radius: 4px;
-  max-width: 50%;
+  min-width: 50%;
 
-  > div:first-child {
+  >:first-child {
     display: grid;
     button {
       place-self: center end;
       background: transparent;
     }
+  }
+`
+
+export const StyledHeader = styled.div`
+  display: grid;
+
+  button {
+    place-self: center end;
+    background: transparent;
+    color: black;
   }
 `

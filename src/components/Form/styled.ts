@@ -27,12 +27,13 @@ export const StyledButtons = styled.div`
 `
 
 export const StyledInput = styled.div`
+  display: flex;
+  flex-flow: column;
   height: 90px;
 
   input {
     color: white;
     border-radius: 4px;
     padding: 8px;
-    width: 100%;
   }
 `
