@@ -1,12 +1,25 @@
-import viteLogo from '/vite.svg'
+import { Link } from 'react-router-dom'
+import { StyledHeader, StyledHeading, StyledIcon, StyledNav } from './styled'
+import { ActionsEnum } from '../../enums/Actions'
 
-export default function Header() {
+interface HeaderProps {
+  action: (name: ActionsEnum, eventId?: string) => void
+}
+
+export default function Header({ action }: HeaderProps) {
   return (
-    <header>
-      <a href='https://vitejs.dev' target='_blank'>
-        <img src={viteLogo} className='logo' alt='Vite logo' />
-      </a>
-      <span>A React Interactive Dashboard</span>
-    </header>
+    <StyledHeader>
+      <StyledHeading>
+        <StyledIcon>🎉</StyledIcon>
+        <span>Event Dashboard</span>
+      </StyledHeading>
+      <StyledNav>
+        <div>
+          <Link to='/list'>List</Link>|
+          <Link to='/calendar' >Calendar</Link>
+        </div>
+        <button onClick={() => action(ActionsEnum.CREATE)}>Create</button>
+      </StyledNav>
+    </StyledHeader>
   )
 }
