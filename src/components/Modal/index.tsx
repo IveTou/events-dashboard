@@ -1,4 +1,5 @@
 import { ReactNode } from "react"
+import { StyledModal } from "./styled"
 
 interface ModalProps {
   children?: ReactNode
@@ -7,9 +8,9 @@ interface ModalProps {
 
 export default function Modal({ children, close }: ModalProps) {
   return (
-    <div>
-      <div><button onClick={close}>CLOSE</button></div>
+    <StyledModal>
+      <div><button onClick={close}>close</button></div>
       {children}
-    </div>
+    </StyledModal>
   )
 }

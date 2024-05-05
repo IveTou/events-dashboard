@@ -28,7 +28,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  display: grid;
   min-width: 320px;
   min-height: 100vh;
 }
