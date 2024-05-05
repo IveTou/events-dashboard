@@ -46,9 +46,9 @@ export default function Layout() {
 
   return (
     <>
+      <Header />
       <aside><Sidebar action={actionHandler} /></aside>
       <main>
-        <Header />
         {/* I could decouple Routes to an routes path */}
         <Routes>
           <Route
