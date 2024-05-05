@@ -45,7 +45,7 @@ export default function Layout() {
   )
 
   return (
-    <>
+    <div>
       <Header />
       <aside><Sidebar action={actionHandler} /></aside>
       <main>
@@ -64,6 +64,6 @@ export default function Layout() {
         </Routes>
       </main>
       {modal}
-    </>
+    </div>
   )
 }
