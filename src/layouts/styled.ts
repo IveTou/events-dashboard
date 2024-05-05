@@ -8,7 +8,6 @@ export const SyledLayout = styled.div`
     'header  header header'
     'sidebar  main main'
     'footer footer footer';
-  grid-auto-flow: column;
 `
 export const StyledMain = styled.main`
   grid-area: main;

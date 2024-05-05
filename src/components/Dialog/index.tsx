@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { DialogAction } from "../../enums/Dialog"
+import { StyledDialog } from "./styled"
 
 interface DialogProps {
   action: (type: DialogAction) => void
@@ -20,11 +21,11 @@ export default function Dialog({ action, text, isOpen = false }: DialogProps) {
   }
 
   return  (
-    <dialog open={open}>
-      {text}
+    <StyledDialog open={open}>
+      <p>{text}</p>
       <footer>
         <button onClick={() => actionHandler(DialogAction.CANCEL)}>Cancel</button>
         <button onClick={() => actionHandler(DialogAction.CONFIRM)}>Confirm</button>
       </footer>
-    </dialog>)
+    </StyledDialog>)
 }
