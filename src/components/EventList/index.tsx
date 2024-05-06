@@ -17,7 +17,7 @@ export default function EventList({ events, action }: EventListProps ) {
 
   return (
     <StyledList>
-      {events.map((event) => <ListItem event={event} action={action} key={event.id} />)}
+      {events.map((event) => <ListItem event={event} action={action} key={`${event.id}-${event.title}`} />)}
     </StyledList>
   )
 }

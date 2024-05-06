@@ -1,15 +1,17 @@
-export function getEvents() {
+import { EventDetail } from "../../types/Event"
+
+export function getStorageEvents(): { [id: string]: EventDetail } {
   try {
     const data  = JSON.parse(localStorage.getItem('events') || '')
     if(!data) throw new Error('Empty storage')
     return data
   } catch (error) {
     console.error('No data has been found', error)
-    return []
+    return {}
   }
 }
 
-export function setEvents(events: any) {
+export function setStorageEvents(events: { [id: string]: EventDetail }) {
   try {
     localStorage.setItem('events', JSON.stringify(events))
   } catch (error) {

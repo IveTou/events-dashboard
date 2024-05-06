@@ -1,6 +1,6 @@
-import { ReactNode, createContext, useContext, useMemo } from "react"
+import { ReactNode, createContext, useContext, useEffect, useMemo, useState } from "react"
 import { EventDetail } from "../types/Event";
-import mock from "./mock";
+import { getStorageEvents, setStorageEvents } from "../services/localstorage/client";
 
 type EventContextType = {
   events: EventDetail[]
@@ -16,31 +16,52 @@ interface EventProviderProps {
 }
 
 export function EventProvider({ children }: EventProviderProps) {
+  const [events, setEvents] = useState<{ [id: string]: EventDetail }>({})
+
+  useEffect(() => {
+    /* API fetch */
+    const data = getStorageEvents()
+    setEvents(data)
+  }, [])
 
   const submitDetail = (fields: EventDetail) => {
     if (fields.id) {
-      console.log('ACTION_EDIT_EVENT', fields)
+      const data = {
+        ...events,
+        [fields.id]: fields
+      }
+      setEvents(data)
+      setStorageEvents(data)
     } else {
-      console.log('ACTION_CREATE_EVENT', fields)
+      const uid = Date.now().toString()
+      const data = {
+        ...events,
+        [uid]: {
+          ...fields,
+          id: uid
+        }
+      }
+      setEvents(data)
+      setStorageEvents(data)
     }
   }
 
   const deleteDetail = (id: string) => {
-    const e: {[key: string]: EventDetail} = mock
+    const data = structuredClone(events)
+    delete data[id]
+
+    setEvents(data)
+    setStorageEvents(data)
     return true
   }
 
   const getDetails = (id: string) => {
-    const e: {[key: string]: EventDetail} = mock
-    return e[id]
+    return events[id]
   }
 
-  const events: EventDetail[] = useMemo(() => {
-    return Object.values(mock)
-  }, [])
 
   const store = useMemo(() => {
-    const sortedEvents = events.sort((a, b) => {
+    const sortedEvents = Object.values(events).sort((a, b) => {
       if(a.start > b.start) return -1
       if(a.start < b.start) return 1
       return 0
