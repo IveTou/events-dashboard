@@ -10,8 +10,10 @@ export default function Header({ action }: HeaderProps) {
   return (
     <StyledHeader>
       <StyledHeading>
-        <StyledIcon>🎉</StyledIcon>
-        <span>Event Dashboard</span>
+        <NavLink to='/'>
+          <StyledIcon>🎉</StyledIcon>
+          <span>Event Dashboard</span>
+        </NavLink>
       </StyledHeading>
       <StyledNav>
         <nav>

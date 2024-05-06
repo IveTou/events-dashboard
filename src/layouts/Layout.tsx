@@ -16,6 +16,7 @@ import { FormFields } from '../components/Form/types';
 import { StyledMain, SyledLayout } from './styled';
 import Footer from '../components/Footer';
 import { EventDetail } from '../types/Event';
+import Home from '../pages/Home';
 
 export default function Layout() {
   const { show, close, visible } = useModal();
@@ -59,6 +60,11 @@ export default function Layout() {
         <StyledMain>
           {/* I could decouple Routes to an routes path */}
           <Routes>
+            <Route
+              path={'/'}
+              element={<Home />}
+              errorElement={<NotFound />}
+            />
             <Route
               path={'/list'}
               element={<List action={actionHandler} />}

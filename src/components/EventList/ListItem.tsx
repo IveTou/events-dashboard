@@ -14,15 +14,14 @@ interface ListItemProps {
 }
 
 export default function ListItem({ event, action }: ListItemProps) {
- const { title, start, end, id } = event
+ const { title, start, id } = event
 
   return (
     <StyledListItem>
       <StyledItemContent>
         <span>{title}</span>
         <div>
-          <span>{start}</span>
-          {end ? <span> to {end}</span> : <span> (All day)</span>}
+          <span>{start.replace('T', " | ")}</span>
         </div>
       </StyledItemContent>
       <StyledItemActions>

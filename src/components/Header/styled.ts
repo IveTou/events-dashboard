@@ -8,17 +8,20 @@ export const StyledHeader = styled.header`
   height: fit-content;
 `
 export const StyledHeading = styled.section`
-  display: flex;
-  justify-content: flex-start;
-  gap: 16px;
-  padding: 0 16px;
+  a {
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 0 16px;
 
-  span {
-    font-size: 1.5rem;
-  }
+    span {
+      font-size: 1.5rem;
+      color: white;
+    }
 
-  * {
-    align-self: center;
+    * {
+      align-self: center;
+    }
   }
 `
 
@@ -26,8 +29,7 @@ export const StyledNav = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  padding: 8px 32px;
-  background-color: white;
+  background-color: #e6e6e6;
 
   @media only screen and (min-width: 768px) {
     display: none;
@@ -35,7 +37,6 @@ export const StyledNav = styled.div`
 
   nav {
     display: flex;
-    gap: 32px;
     align-items: center;
     font-size: 1.2rem;
     color: #242424;
@@ -58,9 +59,11 @@ export const StyledNav = styled.div`
     width: 100%;
     justify-content: end;
     padding: 24px 0 0;
+    background-color: white;
 
     button {
       padding: 8px 24px;
+      margin: 0 16px;
       min-width: 50px;
       font-size: 1.2rem;
     }

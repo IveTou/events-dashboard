@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const StyledSideBar = styled.aside`
   display: none;
   grid-area: sidebar;
-  background-color: white;
-  padding: 16px 8px;
+  background-color: #e6e6e6;
+  padding: 0 8px 16px;
   justify-content: space-between;
 
   @media only screen and (min-width: 768px) {
@@ -15,6 +15,9 @@ export const StyledSideBar = styled.aside`
   h2 {
     font-size: larger;
     color: #242424;
+    background: white;
+    margin: 0;
+    padding: 32px 0;
   }
 
   nav {
