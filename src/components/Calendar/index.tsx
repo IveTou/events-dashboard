@@ -3,6 +3,7 @@ import moment from 'moment'
 import { EventDetail } from '../../types/Event'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { StyledCalendar } from './styled';
+import EmptyState from '../EmptyState';
 
 const localizer = momentLocalizer(moment)
 
@@ -15,6 +16,11 @@ export default function EventsCalendar({ events, action }: EventsCalendarProps){
   const data = events.map((props) => ({
     ...props,
   }))
+
+  if(!events.length) {
+    return <EmptyState />
+  }
+
   return (
     <StyledCalendar>
       <Calendar
