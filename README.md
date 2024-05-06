@@ -62,6 +62,6 @@ export default {
 - Use State Management Tool if necessary
 - Check DRY
 - More tests
-- Lint (run and dev time) for code quality and pattern compliance 
+- Lint (run/dev and push time) for code quality and pattern compliance 
 - List pagination and fetch pagination
 - (OR) Virtualize list with _react-window_
