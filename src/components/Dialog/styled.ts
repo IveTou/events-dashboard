@@ -9,9 +9,16 @@ export const StyledDialog = styled.dialog`
   border-radius: 4px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border: none;
+  z-Index: 10;
 
   p {
     padding: 16px;
+  }
+
+  section {
+    display: flex;
+    flex-flow: column;
+    gap: 16px;
   }
 
   footer {
