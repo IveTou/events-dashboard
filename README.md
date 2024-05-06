@@ -53,3 +53,15 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
+## Notes
+
+- Check semantics and ARIA
+- Use API to fetch and post data
+- Use State Management Tool if necessary
+- Check DRY
+- More tests
+- Lint (run and dev time) for code quality and pattern compliance 
+- List pagination and fetch pagination
+- (OR) Virtualize list with _react-window_

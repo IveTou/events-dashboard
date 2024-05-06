@@ -12,4 +12,6 @@ export const SyledLayout = styled.div`
 export const StyledMain = styled.main`
   grid-area: main;
   min-height: 100%;
+  background: white;
+  color: #242424;
 `
