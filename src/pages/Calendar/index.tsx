@@ -5,6 +5,7 @@ import { useEvents } from "../../context/Event"
 import { ActionsEnum } from "../../enums/Actions"
 import { DialogAction, DialogConfig } from "../../enums/Dialog"
 import { StyledView } from "./styled"
+import EventsCalendar from "../../components/Calendar"
 
 interface CalendarProps {
   action: (name: ActionsEnum, eventId?: string, fields?: FormFields) => void
@@ -12,6 +13,7 @@ interface CalendarProps {
 
 export default function Calendar({ action }: CalendarProps) {
   const [dialogConfig, setDialogConfig] = useState<DialogConfig>()
+  const [selectedEvent, setSelectedEvent] =  useState<FormFields>()
   const { events } = useEvents()
 
   const dialogHandler = useCallback((config: DialogConfig) => {
@@ -29,32 +31,7 @@ export default function Calendar({ action }: CalendarProps) {
   return (
     <StyledView>
       <h1>Calendar</h1>
-      <article>
-        {events.map((event) => {
-          const { title, start, end, id } = event
-          return (
-            <div key={id}>
-              <span>{title}</span>
-              <span>{start}</span>
-              <span>{end || 'All day Event'}</span>
-              <span onClick={() => action(ActionsEnum.DETAILS, id)}>DETAILS</span>
-              <span onClick={() => action(ActionsEnum.EDIT, id, event )}>EDIT</span>
-              <span
-                onClick={
-                  () => dialogHandler({
-                    name: ActionsEnum.DELETE,
-                    eventId: id,
-                    fields: event,
-                    text: 'Are you sure you want to delete this Event?'
-                  })
-                }
-              >
-                DELETE
-              </span>
-            </div>
-          )
-        })}
-      </article>
+      <EventsCalendar events={events} action={setSelectedEvent}/>
       <Dialog
         text={dialogConfig?.text || ''}
         action={actionHandler}

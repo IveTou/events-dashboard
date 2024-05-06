@@ -42,6 +42,8 @@ export default function Form({ cancel, submit, id, fields }: FormProps) {
     }
   }
 
+  const dateFields = ['start', 'end']
+
   return (
     <StyledModal>
       <h2>{id ? 'Edit Event' : 'Create an Event'}</h2>
@@ -50,6 +52,7 @@ export default function Form({ cancel, submit, id, fields }: FormProps) {
           <StyledInput key={id}>
             <label htmlFor={id}>{name}</label>
             <input
+              type={dateFields.includes(id) ? 'datetime-local' : 'text'}
               value={formData && formData[id as keyof FormFields]}
               onChange={e => setFormData(prev => ({ ...prev, [id]: e.target.value }))}
             />

@@ -6,8 +6,9 @@ export const SyledLayout = styled.div`
   align-content: baseline;
   grid-template:
     'header  header header'
-    'sidebar  main main'
-    'footer footer footer';
+    'sidebar main main'
+  ;
+  grid-template-columns: repeat(3, 1fr);
 `
 export const StyledMain = styled.main`
   grid-area: main;

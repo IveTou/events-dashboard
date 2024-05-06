@@ -4,5 +4,6 @@ export type EventDetail = {
   location: string
   start?: string
   end?: string
+  allDay?: boolean
   id?: string
 }

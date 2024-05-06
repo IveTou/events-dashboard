@@ -4,8 +4,8 @@ const schema = z.object({
   title: z.string(),
   description: z.string(),
   location: z.string(),
-  start: z.date(),
-  end:z.date().optional(),
+  start: z.string(),
+  end:z.string().optional(),
 })
 
 const facade = [

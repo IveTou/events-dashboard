@@ -19,9 +19,9 @@ export function EventProvider({ children }: EventProviderProps) {
 
   const submitDetail = (fields: EventDetail) => {
     if (fields.id) {
-      console.log('ACTION_EDIT_EVENT')
+      console.log('ACTION_EDIT_EVENT', fields)
     } else {
-      console.log('ACTION_CREATE_EVENT')
+      console.log('ACTION_CREATE_EVENT', fields)
     }
   }
 

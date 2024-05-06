@@ -20,13 +20,24 @@ export const StyledItemContent = styled.div`
   gap: 8px;
   align-items: center;
   color: #242424;
+  width: 100%;
 
-  span {
+  div {
     font-weight: 300;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  span:first-child {
+  > span {
     font-weight: 500;
+    width: 50%;
+    max-height: 26px;
+    font-size: 1em;
+    lin-height: 1em;
+    overflow: hidden;
+    text-align: start;
+    text-wrap: balance;
   }
 
 `

@@ -19,8 +19,10 @@ export default function ListItem({ event, action }: ListItemProps) {
     <StyledListItem>
       <StyledItemContent>
         <span>{title}</span>
-        <span>from {start}</span>
-        {end ? <span>to {end}</span> : <span> All day</span>}
+        <div>
+          <span>from {start}</span>
+          {end ? <span>to {end}</span> : <span> (All day)</span>}
+        </div>
       </StyledItemContent>
       <StyledItemActions>
         <button onClick={() => action(ActionsEnum.DETAILS, id)}>View</button>
