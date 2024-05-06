@@ -44,6 +44,36 @@ export const StyledItemContent = styled.div`
 
 export const StyledItemActions = styled.div`
   display: flex;
-  gap: 4px;
+  gap: 8px;
+
+  div:hover {
+    span {
+      visibility: visible;
+    }
+  }
+
+  div {
+    position: relative;
+
+    span {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 1;
+      top: 32px;
+      right: 20px;
+    }
+  }
+
+  svg {
+    cursor: pointer;
+    place-self: center;
+  }
+
 `
 

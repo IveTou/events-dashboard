@@ -2,7 +2,8 @@ import { ActionsEnum } from "../../enums/Actions"
 import { EventDetail } from "../../types/Event"
 import { FormFields } from "../Form/types"
 import { StyledItemActions, StyledItemContent, StyledListItem } from "./styled"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit, faEye, faTrashAlt } from '@fortawesome/free-regular-svg-icons'
 interface ListItemProps {
   event: EventDetail
   action: (
@@ -25,9 +26,18 @@ export default function ListItem({ event, action }: ListItemProps) {
         </div>
       </StyledItemContent>
       <StyledItemActions>
-        <button onClick={() => action(ActionsEnum.DETAILS, id)}>View</button>
-        <button onClick={() => action(ActionsEnum.EDIT, id, event )}>Edit</button>
-        <button onClick={() => action(ActionsEnum.DELETE, id, event)}>Delete</button>
+        <div>
+          <span>Show details</span>
+          <FontAwesomeIcon icon={faEye} onClick={() => action(ActionsEnum.DETAILS, id)}/>
+        </div>
+        <div>
+          <span>Edit event</span>
+          <FontAwesomeIcon icon={faEdit} onClick={() => action(ActionsEnum.EDIT, id, event)}/>
+        </div>
+        <div>
+          <span>Delete event</span>
+          <FontAwesomeIcon icon={faTrashAlt} onClick={() => action(ActionsEnum.DELETE, id, event)} />
+        </div>
       </StyledItemActions>
     </StyledListItem>
   )
