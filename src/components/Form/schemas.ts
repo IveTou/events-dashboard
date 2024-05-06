@@ -2,11 +2,14 @@ import { z } from 'zod';
 
 const schema = z.object({
   title: z.string().min(1),
-  description: z.string().min(10),
-  location: z.string().min(10),
+  description: z.string().min(5),
+  location: z.string().min(5),
   start: z.string().min(1, { message: 'Invalid date format'}).transform((str) => new Date(str)),
   end:z.string().min(1, { message: 'Invalid date format'}).transform((str) => new Date(str)),
-})
+}).refine((data) => data.end > data.start, {
+  message: 'End date cannot be earlier than start date.',
+  path: ['end'],
+});
 
 const facade = [
   { id: 'title', name: 'Title', required: true },
