@@ -60,7 +60,7 @@ export default function Form({ cancel, submit, id, fields }: FormProps) {
           </StyledInput>
         ))}
         <StyledButtons>
-          <button onClick={cancel}>Cancel</button>
+          <button className='cancel' onClick={cancel}>Cancel</button>
           <button onClick={handleSubmit}>Submit</button>
         </StyledButtons>
       </div>

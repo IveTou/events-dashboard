@@ -24,7 +24,7 @@ export default function Dialog({ action, text, isOpen = false }: DialogProps) {
     <StyledDialog open={open}>
       <p>{text}</p>
       <footer>
-        <button onClick={() => actionHandler(DialogAction.CANCEL)}>Cancel</button>
+        <button className='cancel' onClick={() => actionHandler(DialogAction.CANCEL)}>Cancel</button>
         <button onClick={() => actionHandler(DialogAction.CONFIRM)}>Confirm</button>
       </footer>
     </StyledDialog>)

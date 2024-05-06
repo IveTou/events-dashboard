@@ -10,7 +10,7 @@ export default function Modal({ children, close }: ModalProps) {
   return (
     <StyledModal>
       <StyledHeader>
-        <button onClick={close}>close</button>
+        <button className='cancel' onClick={close}>close</button>
       </StyledHeader>
       {children}
     </StyledModal>

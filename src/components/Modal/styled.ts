@@ -11,11 +11,8 @@ export const StyledModal = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
   >:first-child {
-    display: grid;
-    button {
-      place-self: center end;
-      background: transparent;
-    }
+    display: flex;
+    justify-content: end;
   }
 `
 

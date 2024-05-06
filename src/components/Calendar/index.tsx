@@ -4,7 +4,6 @@ import { FormFields } from '../Form/types'
 import { EventDetail } from '../../types/Event'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-
 const localizer = momentLocalizer(moment)
 
 interface EventsCalendarProps {
@@ -20,6 +19,7 @@ export default function EventsCalendar({ events, action }: EventsCalendarProps){
         events={events}
         startAccessor='start'
         endAccessor='end'
+        allDayAccessor='allDay'
         style={{ height: 500 }}
         onSelectEvent={action}
       />

@@ -6,7 +6,7 @@ export const StyledFooter = styled.footer`
   background-color: #242424;
 
   section {
-    place-self: end center;
+    place-self: center center;
     padding: 16px;
   }
 `

@@ -18,7 +18,9 @@ export default function Header({ action }: HeaderProps) {
           <NavLink to='/list'>List</NavLink>|
           <NavLink to='/calendar' >Calendar</NavLink>
         </nav>
-        <button onClick={() => action(ActionsEnum.CREATE)}>Create</button>
+        <div>
+          <button onClick={() => action(ActionsEnum.CREATE)}>Create</button>
+        </div>
       </StyledNav>
     </StyledHeader>
   )

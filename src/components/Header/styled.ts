@@ -22,28 +22,47 @@ export const StyledHeading = styled.section`
   }
 `
 
-export const StyledNav = styled.nav`
+export const StyledNav = styled.div`
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
   justify-content: space-between;
   padding: 8px 32px;
   background-color: white;
 
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+
   nav {
     display: flex;
-    gap: 16px;
+    gap: 32px;
     align-items: center;
     font-size: 1.2rem;
     color: #242424;
+    width: 100%;
+    justify-content: center;
 
     a {
       border-radius: 8px;
       padding: 8px 24px;
-      min-width: 50px;
+      width: 100%;
     }
 
     a.active {
       background: lavender;
+    }
+  }
+
+  div {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    padding: 24px 0 0;
+
+    button {
+      padding: 8px 24px;
+      min-width: 50px;
+      font-size: 1.2rem;
     }
   }
 `

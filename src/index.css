@@ -45,6 +45,16 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+button.cancel {
+  background-color: white;
+  color: #242424;
+}
+
+button.cancel:hover {
+  background-color: white;
+}
+
 button:hover {
   border-color: #646cff;
   background-color: #646cff;
