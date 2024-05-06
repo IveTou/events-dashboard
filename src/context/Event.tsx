@@ -27,7 +27,6 @@ export function EventProvider({ children }: EventProviderProps) {
 
   const deleteDetail = (id: string) => {
     const e: {[key: string]: EventDetail} = mock
-    console.log('ACTION_DELETE', e[id])
     return true
   }
 

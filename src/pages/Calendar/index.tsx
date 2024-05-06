@@ -3,7 +3,7 @@ import Dialog from "../../components/Dialog"
 import { FormFields } from "../../components/Form/types"
 import { useEvents } from "../../context/Event"
 import { ActionsEnum } from "../../enums/Actions"
-import { DialogActionEnum, DialogConfig } from "../../enums/Dialog"
+import { DialogActionEnum } from "../../enums/Dialog"
 import { StyledView } from "./styled"
 import EventsCalendar from "../../components/Calendar"
 import { EventDetail } from "../../types/Event"
@@ -17,9 +17,20 @@ export default function Calendar({ action }: CalendarProps) {
   const { events } = useEvents()
 
   const dialogHandler = useCallback((type: DialogActionEnum | ActionsEnum) => {
+    if (type === DialogActionEnum.CANCEL) {
+      setSelectedEvent(undefined)
+      return
+    }
+
+    if (type === DialogActionEnum.CONFIRM && selectedEvent) {
+      action(ActionsEnum.DELETE, selectedEvent.id, selectedEvent)
+      setSelectedEvent(undefined)
+      return
+    }
+
     if (selectedEvent) action(type as ActionsEnum, selectedEvent.id, selectedEvent)
     setSelectedEvent(undefined)
-  }, [])
+  }, [selectedEvent])
 
   const actionHandler = useCallback((fields?: FormFields) => {
     setSelectedEvent(fields)

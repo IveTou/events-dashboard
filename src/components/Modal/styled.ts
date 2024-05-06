@@ -9,6 +9,7 @@ export const StyledModal = styled.div`
   border-radius: 4px;
   min-width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  z-Index: 10;
 
   >:first-child {
     display: flex;
