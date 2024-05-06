@@ -41,13 +41,19 @@ export function EventProvider({ children }: EventProviderProps) {
   }, [])
 
   const store = useMemo(() => {
+    const sortedEvents = events.sort((a, b) => {
+      if(a.start > b.start) return -1
+      if(a.start < b.start) return 1
+      return 0
+    })
+
     return {
-      events,
+      events: sortedEvents,
       submitDetail,
       getDetails,
       deleteDetail,
     }
-  }, [])
+  }, [events])
 
   return <EventContext.Provider value={store}>{children}</EventContext.Provider>
 }

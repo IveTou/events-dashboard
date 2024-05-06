@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledList = styled.div`
  margin: 16px 16px 64px;
- max-height: 500px;
+ height: 500px;
  overflow: auto;
 `
 

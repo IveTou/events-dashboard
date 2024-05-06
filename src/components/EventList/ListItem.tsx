@@ -22,7 +22,7 @@ export default function ListItem({ event, action }: ListItemProps) {
         <span>{title}</span>
         <div>
           <span>{start}</span>
-          {end ? <span> - {end}</span> : <span> (All day)</span>}
+          {end ? <span> to {end}</span> : <span> (All day)</span>}
         </div>
       </StyledItemContent>
       <StyledItemActions>

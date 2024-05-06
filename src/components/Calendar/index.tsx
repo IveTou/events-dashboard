@@ -3,6 +3,7 @@ import moment from 'moment'
 import { FormFields } from '../Form/types'
 import { EventDetail } from '../../types/Event'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import { StyledCalendar } from './styled';
 
 const localizer = momentLocalizer(moment)
 
@@ -16,15 +17,15 @@ export default function EventsCalendar({ events, action }: EventsCalendarProps){
     ...props,
   }))
   return (
-    <div>
+    <StyledCalendar>
       <Calendar
         localizer={localizer}
         events={data}
         startAccessor='start'
         endAccessor='end'
-        style={{ height: 500 }}
+        style={{ height: 500, margin: '16px 16px 64px' }}
         onSelectEvent={action}
       />
-    </div>
+    </StyledCalendar>
   )
 }
