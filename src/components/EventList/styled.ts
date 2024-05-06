@@ -21,13 +21,14 @@ export const StyledItemContent = styled.div`
   align-items: center;
   color: #242424;
 
-  :first-child {
+  span {
+    font-weight: 300;
+  }
+
+  span:first-child {
     font-weight: 500;
   }
 
-  :last-child {
-    font-weight: 300;
-  }
 `
 
 export const StyledItemActions = styled.div`

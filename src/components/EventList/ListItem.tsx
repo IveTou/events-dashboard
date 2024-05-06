@@ -13,13 +13,14 @@ interface ListItemProps {
 }
 
 export default function ListItem({ event, action }: ListItemProps) {
- const { title, date, id } = event
+ const { title, start, end, id } = event
 
   return (
     <StyledListItem>
       <StyledItemContent>
         <span>{title}</span>
-        <span>{date}</span>
+        <span>from {start}</span>
+        {end ? <span>to {end}</span> : <span> All day</span>}
       </StyledItemContent>
       <StyledItemActions>
         <button onClick={() => action(ActionsEnum.DETAILS, id)}>View</button>

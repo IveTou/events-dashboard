@@ -13,8 +13,8 @@ interface FormProps {
 
 const INITIAL_FORM_DATA: FormFields = {
   title: '',
-  time: '',
-  date: '',
+  start: '',
+  end: '',
   description: '',
   location: ''
 }

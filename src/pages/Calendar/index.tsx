@@ -31,12 +31,12 @@ export default function Calendar({ action }: CalendarProps) {
       <h1>Calendar</h1>
       <article>
         {events.map((event) => {
-          const { title, date, time, id } = event
+          const { title, start, end, id } = event
           return (
             <div key={id}>
               <span>{title}</span>
-              <span>{date}</span>
-              <span>{time}</span>
+              <span>{start}</span>
+              <span>{end || 'All day Event'}</span>
               <span onClick={() => action(ActionsEnum.DETAILS, id)}>DETAILS</span>
               <span onClick={() => action(ActionsEnum.EDIT, id, event )}>EDIT</span>
               <span

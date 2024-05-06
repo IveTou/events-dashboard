@@ -1,8 +1,8 @@
 export type EventDetail = {
   title: string
   description: string
-  date: string
-  time: string
   location: string
+  start?: string
+  end?: string
   id?: string
 }

@@ -4,15 +4,15 @@ const schema = z.object({
   title: z.string(),
   description: z.string(),
   location: z.string(),
-  date: z.string().length(10),
-  time:z.string().length(5)
+  start: z.date(),
+  end:z.date().optional(),
 })
 
 const facade = [
   { id: 'title', name: 'Title' },
   { id: 'description', name: 'Description' },
-  { id: 'date', name: 'Date' },
-  { id: 'time', name: 'Time' },
+  { id: 'start', name: 'Starts' },
+  { id: 'end', name: 'Ends' },
   { id: 'location', name: 'Location' },
 ]
 
