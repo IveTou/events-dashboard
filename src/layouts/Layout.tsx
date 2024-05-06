@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react'
+import { ReactNode, useCallback, useState } from 'react'
 import { createPortal } from 'react-dom';
 import { useModal } from '@refinedev/core';
 import Header from '../components/Header'
@@ -27,8 +27,9 @@ export default function Layout() {
     submitDetail(fields)
     close()
   }
+
   {/* I could open modal based on navigation data */}
-  const actionHandler = (name: ActionsEnum, eventId?: string, fields?: FormFields) => {
+  const actionHandler = useCallback((name: ActionsEnum, eventId?: string, fields?: FormFields) => {
     if (name === ActionsEnum.DELETE) {
       deleteDetail(eventId!)
       return
@@ -43,7 +44,7 @@ export default function Layout() {
 
     setModalContent(contentMap)
     show()
-  }
+  }, [getDetails])
 
   const modal = visible && createPortal(
     <Modal close={close}>

@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useEffect, useMemo, useState } from "react"
+import { ReactNode, createContext, useCallback, useContext, useEffect, useMemo, useState } from "react"
 import { EventDetail } from "../types/Event";
 import { getStorageEvents, setStorageEvents } from "../services/localstorage/client";
 
@@ -55,9 +55,9 @@ export function EventProvider({ children }: EventProviderProps) {
     return true
   }
 
-  const getDetails = (id: string) => {
+  const getDetails = useCallback((id: string) => {
     return events[id]
-  }
+  }, [events])
 
 
   const store = useMemo(() => {
@@ -73,7 +73,7 @@ export function EventProvider({ children }: EventProviderProps) {
       getDetails,
       deleteDetail,
     }
-  }, [events])
+  }, [events, getDetails])
 
   return <EventContext.Provider value={store}>{children}</EventContext.Provider>
 }

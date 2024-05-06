@@ -37,7 +37,7 @@ export default function List({ action }: ListProps) {
     } else {
       action(name, eventId, fields)
     }
-  }, [])
+  }, [action])
 
   return (
     <StyledView>
