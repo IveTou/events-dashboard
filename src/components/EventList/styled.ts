@@ -23,6 +23,7 @@ export const StyledItemContent = styled.div`
   width: 100%;
 
   div {
+    font-size: 0.75em;
     font-weight: 300;
     white-space: nowrap;
     overflow: hidden;

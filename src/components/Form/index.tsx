@@ -48,12 +48,13 @@ export default function Form({ cancel, submit, id, fields }: FormProps) {
     <StyledModal>
       <h2>{id ? 'Edit Event' : 'Create an Event'}</h2>
       <div>
-        {facade.map(({ id, name }) => (
+        {facade.map(({ id, name, required }) => (
           <StyledInput key={id}>
             <label htmlFor={id}>{name}</label>
             <input
               type={dateFields.includes(id) ? 'datetime-local' : 'text'}
               value={formData && formData[id as keyof FormFields]}
+              required={required}
               onChange={e => setFormData(prev => ({ ...prev, [id]: e.target.value }))}
             />
             {errors  && <span>{errors[id as keyof FormFields]}</span>}

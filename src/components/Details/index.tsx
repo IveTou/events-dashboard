@@ -22,7 +22,7 @@ export default function Details({ title, description, start, end, location }: De
         <p>{location}</p>
       </section>
       <section>
-        <h3>Event details</h3>
+        <h3>Event description</h3>
         <p>{description}</p>
       </section>
     </StyledDetails>

@@ -12,14 +12,16 @@ interface EventsCalendarProps {
 }
 
 export default function EventsCalendar({ events, action }: EventsCalendarProps){
+  const data = events.map((props) => ({
+    ...props,
+  }))
   return (
     <div>
       <Calendar
         localizer={localizer}
-        events={events}
+        events={data}
         startAccessor='start'
         endAccessor='end'
-        allDayAccessor='allDay'
         style={{ height: 500 }}
         onSelectEvent={action}
       />

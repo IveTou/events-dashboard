@@ -21,8 +21,8 @@ export default function ListItem({ event, action }: ListItemProps) {
       <StyledItemContent>
         <span>{title}</span>
         <div>
-          <span>from {start}</span>
-          {end ? <span>to {end}</span> : <span> (All day)</span>}
+          <span>{start}</span>
+          {end ? <span> - {end}</span> : <span> (All day)</span>}
         </div>
       </StyledItemContent>
       <StyledItemActions>
