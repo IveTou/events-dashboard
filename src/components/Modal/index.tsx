@@ -9,7 +9,9 @@ interface ModalProps {
 export default function Modal({ children, close }: ModalProps) {
   return (
     <StyledModal>
-      <StyledHeader><button onClick={close}>close</button></StyledHeader>
+      <StyledHeader>
+        <button onClick={close}>close</button>
+      </StyledHeader>
       {children}
     </StyledModal>
   )

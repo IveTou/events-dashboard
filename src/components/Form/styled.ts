@@ -5,7 +5,7 @@ export const StyledModal = styled.div`
 
   h2 {
     font-size: x-large;
-    color: black;
+    color: #242424;
     margin-bottom: 16px;
   }
 
@@ -19,11 +19,6 @@ export const StyledButtons = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 32px;
-
-  button {
-    background: black;
-    color: white;
-  }
 `
 
 export const StyledInput = styled.div`

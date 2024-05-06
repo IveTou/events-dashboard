@@ -27,14 +27,24 @@ export const StyledNav = styled.nav`
   flex-flow: row;
   justify-content: space-between;
   padding: 8px 32px;
-  background-color: rgb(218, 222, 239);
+  background-color: white;
 
-  div {
+  nav {
     display: flex;
     gap: 16px;
     align-items: center;
     font-size: 1.2rem;
     color: #242424;
+
+    a {
+      border-radius: 8px;
+      padding: 8px 24px;
+      min-width: 50px;
+    }
+
+    a.active {
+      background: lavender;
+    }
   }
 `
 

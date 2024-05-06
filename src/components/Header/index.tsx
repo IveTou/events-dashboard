@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { StyledHeader, StyledHeading, StyledIcon, StyledNav } from './styled'
 import { ActionsEnum } from '../../enums/Actions'
 
@@ -14,10 +14,10 @@ export default function Header({ action }: HeaderProps) {
         <span>Event Dashboard</span>
       </StyledHeading>
       <StyledNav>
-        <div>
-          <Link to='/list'>List</Link>|
-          <Link to='/calendar' >Calendar</Link>
-        </div>
+        <nav>
+          <NavLink to='/list'>List</NavLink>|
+          <NavLink to='/calendar' >Calendar</NavLink>
+        </nav>
         <button onClick={() => action(ActionsEnum.CREATE)}>Create</button>
       </StyledNav>
     </StyledHeader>

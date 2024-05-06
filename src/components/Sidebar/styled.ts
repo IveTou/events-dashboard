@@ -4,19 +4,24 @@ export const StyledSideBar = styled.aside`
   display: flex;
   flex-flow: column;
   grid-area: sidebar;
-  background-color: rgb(218, 222, 239);
+  background-color: white;
   padding: 16px 8px;
   justify-content: space-between;
 
   h2 {
     font-size: larger;
-    color: black;
-    background: light-grey;
+    color: #242424;
   }
 
   nav {
+    display: grid;
     padding: 16px 0;
     padding: 16px 0;
     line-height: 40px;
+
+    a.active {
+      background: lavender;
+      border-radius: 8px;
+    }
   }
 `

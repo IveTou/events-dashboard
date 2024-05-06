@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ActionsEnum } from '../../enums/Actions';
 import { StyledSideBar } from './styled';
 
@@ -10,12 +10,10 @@ export default function Sidebar({ action }: SideBarProps) {
   return (
     <StyledSideBar>
       <div>
-        <h2 className='text-xl font-medium text-black'>Chose your view</h2>
+        <h2 className='text-xl font-medium text-#242424'>Chose your view</h2>
         <nav>
-          <ul>
-            <li><Link to='/list'>List</Link></li>
-            <li><Link to='/calendar' >Calendar</Link></li>
-          </ul>
+          <NavLink to='/list'>List</NavLink>
+          <NavLink to='/calendar'>Calendar</NavLink>
         </nav>
       </div>
       <button onClick={() => action(ActionsEnum.CREATE)}>Create</button>
