@@ -3,7 +3,7 @@ import Dialog from "../../components/Dialog"
 import { FormFields } from "../../components/Form/types"
 import { useEvents } from "../../context/Event"
 import { ActionsEnum } from "../../enums/Actions"
-import { DialogAction, DialogConfig } from "../../enums/Dialog"
+import { DialogActionEnum, DialogConfig } from "../../enums/Dialog"
 import { StyledView } from "./styled"
 import EventList from "../../components/EventList"
 interface ListProps {
@@ -18,8 +18,8 @@ export default function List({ action }: ListProps) {
     setDialogConfig(config)
   }, [])
 
-  const dialogActionHandler = useCallback((type: DialogAction) => {
-    if (type === DialogAction.CONFIRM && dialogConfig) {
+  const dialogActionHandler = useCallback((type: DialogActionEnum) => {
+    if (type === DialogActionEnum.CONFIRM && dialogConfig) {
       const { name, eventId, fields} = dialogConfig
       action(name, eventId, fields)
     }
