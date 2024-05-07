@@ -16,7 +16,7 @@ export default function EventList({ events, action }: EventListProps ) {
   }
 
   return (
-    <StyledList>
+    <StyledList data-testid='event-list'>
       {events.map((event) => <ListItem event={event} action={action} key={`${event.id}-${event.title}`} />)}
     </StyledList>
   )
