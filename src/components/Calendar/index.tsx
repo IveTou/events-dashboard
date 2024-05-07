@@ -4,6 +4,7 @@ import { EventDetail } from '../../types/Event'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { StyledCalendar } from './styled';
 import EmptyState from '../EmptyState';
+import { dateToShortIso } from '../../utils/formatDate';
 
 const localizer = momentLocalizer(moment)
 
@@ -38,8 +39,8 @@ export default function EventsCalendar({ events, action }: EventsCalendarProps){
             description,
             location,
             id,
-            start: start.toISOString(),
-            end: end.toISOString()
+            start: dateToShortIso(start),
+            end: dateToShortIso(end)
           }
         )}
       />

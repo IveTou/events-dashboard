@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon'
 import { ActionsEnum } from "../../enums/Actions"
 import { EventDetail } from "../../types/Event"
 import { FormFields } from "../Form/types"
@@ -21,7 +22,7 @@ export default function ListItem({ event, action }: ListItemProps) {
       <StyledItemContent>
         <span>{title}</span>
         <div>
-          <span>{start.replace('T', " | ")}</span>
+          <span>{DateTime.fromISO(start).setLocale('us').toFormat('yyyy LLL dd')}</span>
         </div>
       </StyledItemContent>
       <StyledItemActions>

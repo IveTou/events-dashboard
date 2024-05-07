@@ -65,3 +65,5 @@ export default {
 - Lint (run/dev and push time) for code quality and pattern compliance 
 - List pagination and fetch pagination
 - (OR) Virtualize list with _react-window_
+- Config alias for paths
+- More componentzation

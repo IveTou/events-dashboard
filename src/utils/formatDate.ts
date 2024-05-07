@@ -1,3 +1,5 @@
+import { DateTime } from 'luxon'
+
 export function dateStringToIso(value?: string) {
   if (!value) return
 
@@ -6,5 +8,15 @@ export function dateStringToIso(value?: string) {
     return date.toISOString()
   } catch {
     return
+  }
+}
+
+export function dateToShortIso(date?: Date) {
+  if (!date) return ''
+
+  try {
+    return DateTime.fromJSDate(date).toFormat("yyyy-mm-dd'T'T")
+  } catch {
+    return ''
   }
 }
