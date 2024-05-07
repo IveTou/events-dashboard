@@ -11,12 +11,15 @@ export function dateStringToIso(value?: string) {
   }
 }
 
-export function dateToShortIso(date?: Date) {
-  if (!date) return ''
-
+export function dateToShortIso(date?: Date | string) {
+  if (!date || !(date instanceof Date)) return ''
   try {
-    return DateTime.fromJSDate(date).toFormat("yyyy-mm-dd'T'T")
+    return DateTime.fromJSDate(date).toFormat("yyyy-MM-dd'T'T")
   } catch {
     return ''
   }
+}
+
+export function assertDate(value: string) {
+  return Date.parse(value)
 }

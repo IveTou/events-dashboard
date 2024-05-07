@@ -4,7 +4,7 @@ import { EventDetail } from '../../types/Event'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { StyledCalendar } from './styled';
 import EmptyState from '../EmptyState';
-import { dateToShortIso } from '../../utils/formatDate';
+import { assertDate, dateToShortIso } from '../../utils/formatDate';
 
 const localizer = momentLocalizer(moment)
 
@@ -14,7 +14,9 @@ interface EventsCalendarProps {
 }
 
 export default function EventsCalendar({ events, action }: EventsCalendarProps){
-  const data = events.map((props) => ({
+  const data = events
+  .filter(({ start, end }) => assertDate(start) && assertDate(end))
+  .map((props) => ({
     ...props,
     start: new Date(props.start),
     end: new Date(props.end),

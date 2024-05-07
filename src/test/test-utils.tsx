@@ -1,15 +1,12 @@
 import React, { ReactElement } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-import { EventProvider } from '../context/Event'
 import '@testing-library/jest-dom'
 
 const AllTheProviders = ({children}: {children: React.ReactNode}) => {
   return (
     <BrowserRouter>
-      <EventProvider>
-        {children}
-      </EventProvider>
+      {children}
     </BrowserRouter>
   )
 }
