@@ -15,6 +15,8 @@ interface EventsCalendarProps {
 export default function EventsCalendar({ events, action }: EventsCalendarProps){
   const data = events.map((props) => ({
     ...props,
+    start: new Date(props.start),
+    end: new Date(props.end),
   }))
 
   if(!events.length) {
@@ -29,7 +31,17 @@ export default function EventsCalendar({ events, action }: EventsCalendarProps){
         startAccessor='start'
         endAccessor='end'
         style={{ height: 500, margin: '16px 16px 64px' }}
-        onSelectEvent={action}
+        onSelectEvent={
+          ({ title, description, location, id, start, end }) => action && action(
+          {
+            title,
+            description,
+            location,
+            id,
+            start: start.toISOString(),
+            end: end.toISOString()
+          }
+        )}
       />
     </StyledCalendar>
   )
